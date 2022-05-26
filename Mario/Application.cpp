@@ -4,6 +4,8 @@
 #include<SFML/Window.hpp>
 #include<SFML/System.hpp>
 #include<vector>
+#include<iostream>
+using namespace std;
 
 int main()
 {
@@ -46,30 +48,33 @@ int main()
     graph.setPosition(1050, 300);
 
     sf::RectangleShape sechand;
-    sechand.setOrigin(0,0);
+    sechand.setOrigin(1,75);
     sechand.setSize(sf::Vector2f(2,75));
-    sechand.setPosition(653, 350);
-    sechand.setRotation(180.f);
-    sechand.setFillColor(sf::Color(170, 170, 170));
+    sechand.setPosition(650, 273);
+    sechand.setRotation(90.f);
+    sechand.setFillColor(sf::Color(255,204,0));
 
     sf::RectangleShape minhand;
-    minhand.setOrigin(0, 0);
+    minhand.setOrigin(0,0);
     minhand.setSize(sf::Vector2f(4,69));
-    minhand.setPosition(650, 350);
-    minhand.setRotation(45.f);
-    minhand.setFillColor(sf::Color(204, 204, 204));
+    minhand.setPosition(650,280);
+    minhand.setRotation(0.f);
+    minhand.setFillColor(sf::Color(255,60,94));
     
     sf::RectangleShape hrhand;
-    hrhand.setOrigin(0, 0);
-    hrhand.setSize(sf::Vector2f(5, 50));
-    hrhand.setPosition(650, 350);
+    hrhand.setOrigin(2,0);
+    hrhand.setSize(sf::Vector2f(4, 50));
+    hrhand.setPosition(650,298);
     hrhand.setRotation(0.f);
-    hrhand.setFillColor(sf::Color(255, 255, 255));
+    hrhand.setFillColor(sf::Color(108,108, 255));
 
-
+   /* sf::Font font;
+    font.loadFromFile("Roboto-Regular.ttf");
     sf::Text day;
-    day.setString("Mon");
-    day.setFillColor(sf::Color(85,85,85));
+    day.setFont(font);
+    day.setCharacterSize(24);
+    day.setPosition(100,200);
+    day.setFillColor(sf::Color(255,255,255));*/
 
     while (window.isOpen())
     {
@@ -87,10 +92,9 @@ int main()
         window.draw(incircle);
         window.draw(temperature);
         window.draw(graph);
-        window.draw(minhand);
         window.draw(hrhand);
+        window.draw(minhand);
         window.draw(sechand);
-        window.draw(day);
         window.display();
     }
 
