@@ -3,6 +3,7 @@
 #include<SFML/OpenGL.hpp>
 #include<SFML/Window.hpp>
 #include<SFML/System.hpp>
+#include<SFML/Window/ContextSettings.hpp>
 #include<vector>
 #include<iostream>
 using namespace std;
@@ -10,8 +11,10 @@ using namespace std;
 int main()
 {
     int elapsed = 0;
-    sf::RenderWindow window(sf::VideoMode(1366, 768), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(1366, 768,32), "SFML works!",sf::Style::Close, sf::ContextSettings(24, 8, 4));
     window.clear(sf::Color(55,55,55));
+    window.setFramerateLimit(60);
+    
    
     sf::CircleShape incircle;
     incircle.setRadius(90.f);
@@ -70,9 +73,10 @@ int main()
     hrhand.setRotation(0.f);
     hrhand.setFillColor(sf::Color(108,108, 255));
 
+    
 
-    /*sf::Font font;
-    font.loadFromFile("SugarpunchDEMO.otf");
+   /*sf::Font font;
+   font.loadFromFile("Roboto-Black.ttf");
     sf::Text day;
     day.setFont(font);
     day.setCharacterSize(24);
@@ -89,13 +93,13 @@ int main()
         }
 
          if (elapsed++ % 60 == 59)
-           sechand.rotate(5.3);
+           sechand.rotate(6.f);
 
-        /* if (elapsed++ % 15 == 0)
-             minhand.rotate(20.f);
+        if (elapsed % 3600 == 3599)
+             minhand.rotate(6.f);
 
-         if (elapsed++ % 15 == 0)
-             hrhand.rotate(20.f);*/
+         if (elapsed % 216000 == 215999)
+             hrhand.rotate(6.f);
                 
         window.clear(sf::Color(55,55,55));
         window.draw(outmcircle);
