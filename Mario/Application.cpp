@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+#include<SFML/Graphics.hpp>
 #include<SFML/Main.hpp>
 #include<SFML/OpenGL.hpp>
 #include<SFML/Window.hpp>
@@ -11,11 +11,10 @@ using namespace std;
 int main()
 {
     int elapsed = 0;
-    sf::RenderWindow window(sf::VideoMode(1366, 768,32), "SFML works!",sf::Style::Close, sf::ContextSettings(24, 8, 4));
+    sf::RenderWindow window(sf::VideoMode(1366,768,32), "SFML works!",sf::Style::Close, sf::ContextSettings(24, 8, 4));
     window.clear(sf::Color(55,55,55));
     window.setFramerateLimit(60);
     
-   
     sf::CircleShape incircle;
     incircle.setRadius(90.f);
     incircle.setOutlineThickness(5.f);
@@ -73,15 +72,13 @@ int main()
     hrhand.setRotation(0.f);
     hrhand.setFillColor(sf::Color(108,108, 255));
 
-    
-
-   /*sf::Font font;
-   font.loadFromFile("Roboto-Black.ttf");
+    sf::Font font;
+    font.loadFromFile("BubblegumSans.ttf");
     sf::Text day;
     day.setFont(font);
     day.setCharacterSize(24);
     day.setPosition(100,200);
-    day.setFillColor(sf::Color(255,255,255));*/
+    day.setFillColor(sf::Color(255,255,255));
 
     while (window.isOpen())
     {
@@ -111,7 +108,7 @@ int main()
         window.draw(hrhand);
         window.draw(minhand);
         window.draw(sechand);
-      //  window.draw(day);
+        window.draw(day);
         window.display();
     }
 
