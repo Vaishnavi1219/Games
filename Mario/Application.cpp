@@ -6,14 +6,20 @@
 #include<SFML/Window/ContextSettings.hpp>
 #include<vector>
 #include<iostream>
-using namespace std;
+#include"CurvedText"
 
-int main()
+using namespace std;
+using namespace sf;
+
+int main(int argc, char** argv)
 {
+    std::cout << argv[0] << endl;
     int elapsed = 0;
     sf::RenderWindow window(sf::VideoMode(1366,768,32), "SFML works!",sf::Style::Close, sf::ContextSettings(24, 8, 4));
     window.clear(sf::Color(55,55,55));
     window.setFramerateLimit(60);
+
+
     
     sf::CircleShape incircle;
     incircle.setRadius(90.f);
@@ -73,11 +79,17 @@ int main()
     hrhand.setFillColor(sf::Color(108,108, 255));
 
     sf::Font font;
-    font.loadFromFile("BubblegumSans.ttf");
-    sf::Text day;
-    day.setFont(font);
+
+    if (!font.loadFromFile("C:/Users/vaishanavi/source/repos/Vaishnavi1219/Games/x64/Debug/BubblegumSans.ttf")) 
+    { std::cerr << "ERROR loading Font.ttf" << std::endl; }
+    CurvedText cText("Curved Hello", 4, 1, font, 20);
+    cText.setPosition(100, 300);
+    cText.SetColor(sf::Color(255, 255, 255));
+    
+    sf::Text day("Monday",font);
+    
     day.setCharacterSize(24);
-    day.setPosition(100,200);
+    day.setPosition(600,300);
     day.setFillColor(sf::Color(255,255,255));
 
     while (window.isOpen())
@@ -109,8 +121,9 @@ int main()
         window.draw(minhand);
         window.draw(sechand);
         window.draw(day);
+        window.draw(cText);
         window.display();
     }
 
     return 0;
-}
+} 

@@ -1,0 +1,50 @@
+#pragma once
+#include<SFML/Graphics.hpp>
+#include<SFML/Main.hpp>
+#include<SFML/OpenGL.hpp>
+#include<SFML/Window.hpp>
+#include<SFML/System.hpp>
+#include<SFML/Window/ContextSettings.hpp>
+#include<vector>
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<cmath>
+
+#define M_PI 3.14159265358979323846
+using namespace sf;
+using namespace std;
+
+class CurvedText : public Transformable, public Drawable
+{
+public:
+    VertexArray vertices;
+    float radius;
+    string displayedString;
+    Font font;
+    short charSize;
+    Color color;
+    float spacing;
+    bool centered;
+    Transform centerTransform;
+
+    void SetRadius(float value);
+    int GetRadius();
+    void SetDisplayedString(string value);
+    string GetDisplayedString();
+    void SetCharacterSize(short value);
+    short GetCharacterSize();
+    void SetSpacing(float value);
+    float GetSpacing();
+    void SetCentered(bool value);
+    bool GetCentered();
+    void SetFont(Font value);
+    Font GetFont();
+    void SetColor(Color value);
+    Color GetColor();
+
+    CurvedText(string str, float radius,float spacing,Font font, short charSize);
+    void draw(RenderTarget& target, RenderStates states) const;
+protected:
+    void UpdateGeometry();
+};
